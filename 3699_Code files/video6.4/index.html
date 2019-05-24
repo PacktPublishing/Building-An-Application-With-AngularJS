@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cancel $http requests</title>
+</head>
+<body ng-app="myApp">
+<div ng-controller="MainController">
+	<button ng-click="loadCard(4)">Get card</button><br>
+	<button ng-click="cancel()">Cancel</button>
+</div>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular.min.js"></script>
+<script type="text/javascript">
+	var app = angular.module("myApp", []);
+	app.controller("MainController", function($scope, $q, $http){
+		var canceller;
+
+		$scope.loadCard = function(id){
+			canceller = $q.defer();
+			var config = { timeout: canceller.promise };
+			$http.get("/cards/" + id.toString(), config).then(function(response){
+				alert(JSON.stringify(response.data));
+			}, function(response){
+				alert("Could not load card...");
+			});
+			return canceller.promise;
+		};
+
+		$scope.cancel = function(){
+			canceller.resolve("Operation aborted by user");
+		};	
+	});
+</script>
+</body>
+</html>
+

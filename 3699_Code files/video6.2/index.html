@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The $q library</title>
+</head>
+<body ng-app="deferredApp" ng-controller="MainController">
+<h2>Creating a deferred object...</h2>
+<button ng-click="test()">Click me</button><br>
+<input type="checkbox" ng-model="fail"/> Fail
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular.min.js"></script>
+<script type="text/javascript">
+	var app = angular.module("deferredApp", []);
+	app.controller("MainController", function($scope, $q){
+		$scope.test = function(){
+			var deferred = $q.defer();
+			var promise = deferred.promise;
+			promise.then(function(value){
+				alert("Success: " + value);
+			}, function(value){
+				alert("Failure: " + value);
+			});
+
+			if($scope.fail)
+				deferred.reject("sorry...");
+			else
+				deferred.resolve("so cool!")
+		};
+	});
+</script>
+</body>
+</html>

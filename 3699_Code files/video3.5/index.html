@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Client side routing</title>
+	<style type="text/css">
+	header, footer { 
+		border: 1px solid black;
+		min-height: 50px;
+		background: lightgray
+	}
+	.content {
+		border: 1px solid black;
+		min-height: 500px;
+	}
+	</style>
+</head>
+<body ng-app="VocabularyTeacher">
+<header>This is the header of the main page</header>
+
+<div class="content" ng-view></div>
+
+<footer>This is the footer of the main page</footer>
+
+<script src='bower_components/angular/angular.js'></script>
+<script src='bower_components/angular-route/angular-route.js'></script>
+<script src='app.js'></script>
+</body>
+</html>

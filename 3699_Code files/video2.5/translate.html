@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vocabulary Teacher</title>
+	<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+</head>
+<body ng-app='VocabularyTeacher'>
+
+<div ng-controller='TranslateController'>
+	<h2>Translating words to {{language.name}}</h2>
+	<p>Enter a word in English and click the translate button to get it translated to {{language.name}}.</p>
+	<form name='translateForm' role="form" novalidate>
+		<div class="form-group">
+    		<label for="source">Source text</label>
+    		<input type="text" ng-model='sourceText' class="form-control" id="source" name="source" placeholder="Enter text in English"/>
+  		</div>
+  		<button ng-click='translate(sourceText)' ng-disabled='true'>Translate</button>
+		<div class="form-group">
+    		<label for="target">{{language.name}} translation</label>
+    		<input type="text" ng-model='targetText' class="form-control" id="target" name="target" 
+    				ng-focus='gotFocus()' ng-blur='lostFocus()'/>
+  		</div>
+
+  		<button ng-click='createCard()'>Add card</button>
+  		
+	</form>
+	<hr>
+	<h3>Cards</h3>
+	<p>This is the list of {{language.name}} terms you have collected so far</p>
+	<ul class="list-unstyled">
+		<li ng-repeat='card in cards' ng-include='"card.html"'>
+		</li>
+	</ul>
+</div>
+
+<script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular.min.js'></script>
+<script src='app.js'></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Including and excluding</title>
+</head>
+<body ng-app>
+<h2>Including and excluding DOM elements</h2>
+<div ng-init='showMe=true'>
+	<input type='checkbox' ng-model='showMe'/> Show traffic light<br>
+	<div ng-if='showMe'>
+		<img ng-src='red-light.png'></img><br>
+		<img ng-src='yellow-light.png'></img><br>
+		<img ng-src='green-light.jpg'></img>
+	</div>
+</div>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular.min.js'></script>
+</body>
+</html>

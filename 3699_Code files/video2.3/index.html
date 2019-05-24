@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple models</title>
+</head>
+<body ng-app="SimpleModelApp">
+<div ng-controller="SimpleModelController">
+	<label>Enter your first name:</label>
+	<input type="text" ng-model="person.firstName"><br>
+	<label>Enter your last name:</label>
+	<input type="text" ng-model="person.lastName"><br>
+	<label>Enter your age:</label>
+	<input type="number" ng-model="person.age"><br>
+</div>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0/angular.min.js"></script>
+
+<script type="text/javascript">
+	var app = angular.module('SimpleModelApp', []);
+	app.controller('SimpleModelController', function($scope){
+
+		$scope.person = {
+			firstName: "John",
+			lastName: "Doe",
+			age: 25
+		};
+
+	});	
+</script>
+</body>
+</html>

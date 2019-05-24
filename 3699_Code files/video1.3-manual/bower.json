@@ -1,0 +1,15 @@
+{
+  "name": "video1.3-manual",
+  "version": "0.0.0",
+  "authors": [
+    "Gabriel N Schenker <gschenker@topazti.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

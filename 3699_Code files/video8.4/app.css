@@ -1,0 +1,23 @@
+.card-outer-frame {
+	border: 5px solid blue;
+	padding: 2px;
+	margin: 5px;
+	width: 33%;
+}
+
+.card-inner-frame {
+	border: 3px solid lightblue;
+	padding: 5px;
+}
+
+.card-content {
+	border: 3px solid lightgray;
+	padding: 5px;
+	min-height: 50px;
+}
+
+.inner {
+	border: 1px solid black;
+	background: lightgray;
+	padding: 5px;
+}

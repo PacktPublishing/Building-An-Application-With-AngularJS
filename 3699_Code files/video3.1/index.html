@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular Forms</title>
+</head>
+<body ng-app="VocabularyTeacher">
+<div ng-controller="TranslationController">
+	<form novalidate name="translateForm">
+		<label>Word to translate:</label>
+		<input type="text" ng-model="sourceText" name="source"
+				required maxlength="50">
+		<button ng-click="translate(sourceText)">Translate</button>
+	</form>
+
+	<div>
+		<!-- $dirty, $pristine, $valid, $invalid -->
+		<div>Form is dirty: {{translateForm.$dirty}}</div>
+		<div>Form is pristine: {{translateForm.$pristine}}</div>
+		<div>Form is valid: {{translateForm.$valid}}</div>
+		<div>Form is invalid: {{translateForm.$invalid}}</div>
+		<br>
+		<div>Source control is invalid: {{translateForm.source.$invalid}}</div>
+		<div>Source control is dirty: {{translateForm.source.$dirty}}</div>
+	</div>
+</div>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0/angular.min.js'></script>
+<script src='app.js'></script>
+</body>
+</html>

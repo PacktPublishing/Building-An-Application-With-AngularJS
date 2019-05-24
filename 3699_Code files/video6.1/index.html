@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Promises</title>
+</head>
+<body ng-app="promiseApp" ng-controller="MainController">
+<h2>Using a promise...</h2>
+<button ng-click="getCards()">Successful call</button>
+<button ng-click="getCardsWithError()">Failing call</button>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular.min.js"></script>
+<script type="text/javascript">
+	var app = angular.module("promiseApp", []);
+	app.controller("MainController", function($scope, $http){
+		$scope.getCards = function(){
+			$http.get("/cards").then(function(result){
+				alert("success");
+			}, function(result){
+				alert("failure");
+			})
+		};
+
+		$scope.getCardsWithError = function(){
+			// note: wrong URI!
+			$http.get("/cardsXXX").then(function(result){
+				alert("success");
+			}, function(result){
+				alert("failure");
+			})
+		}
+	})
+</script>
+</body>
+</html>

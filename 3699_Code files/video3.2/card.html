@@ -1,0 +1,21 @@
+<style type="text/css">
+li { 
+	border: solid 1px black;
+	padding: 5px;
+	margin: 5px;
+	width: 300px;
+}
+.box {
+	display: inline-block;
+}
+</style>
+<div>
+	<div class="box">
+		<img ng-src="flag{{card.languageId}}.jpg">
+	</div>
+	<div class="box">
+		{{card.id}}<br>
+		<b>English word:</b> {{card.source}}<br>
+		<b>Translated:</b> {{card.target}}
+	</div>
+</div>

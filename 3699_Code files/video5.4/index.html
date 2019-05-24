@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Custom services</title>
+</head>
+<body ng-app='LanguageTeacher'>
+<div ng-controller='MainController'>
+	<form name="MyForm" novalidate>
+		<label>Word</label>
+		<input type="text" ng-model="source"/><br>
+		<label>Language</label>
+		<select ng-model="language" ng-options="lang.language as lang.name for lang in languages"></select><br>
+		<label>Translation</label>
+		<input type="text" ng-model="target"/><br>
+		<button ng-click="addCard()">Add card</button>
+	</form>
+	<h2>Show cards</h2>
+	<label>Which language:</label>
+	<select ng-model="filterLanguage" ng-options="lang.language as lang.name for lang in languages"></select><br>
+	<button ng-click="getCards()">Load</button>
+	<ul>
+		<li ng-repeat="c in filteredCards">
+			{{c.source}} --> {{c.target}}
+		</li>
+	</ul>
+</div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0/angular.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
